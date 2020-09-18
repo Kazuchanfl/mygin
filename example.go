@@ -14,5 +14,12 @@ func main() {
 		name := c.Param("name")
 		c.String(http.StatusOK, "Hello, %s!", name)
 	})
+	router.GET("/greet", func(c *gin.Context) {
+		name := c.Query("name")
+		if name == "" {
+			name = "Guest"
+		}
+		c.String(http.StatusOK, "Hello, %s!", name)
+	})
 	router.Run()
 }
