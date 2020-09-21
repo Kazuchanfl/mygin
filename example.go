@@ -23,7 +23,9 @@ func main() {
 	})
 	router.POST("/greet", func(c *gin.Context) {
 		name := c.DefaultQuery("name", "Guest")
-		c.String(http.StatusOK, "Hello, %s!", name)
+		message := c.PostForm("message")
+
+		c.String(http.StatusOK, "%s %s", message, name)
 	})
 	router.POST("/form", func(c *gin.Context) {
 		message := c.PostForm("message")
