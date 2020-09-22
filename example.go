@@ -5,6 +5,10 @@ import (
 	"net/http"
 )
 
+type Person struct {
+	Name string `form:"name"`
+}
+
 func main() {
 	router := gin.Default()
 	router.GET("/", func(c *gin.Context) {
