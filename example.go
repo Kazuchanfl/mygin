@@ -12,6 +12,8 @@ func main() {
 		c.String(http.StatusOK, "Hello, World!")
 	})
 	router.Static("/a''", "./assets")
-	// router.GET("/acount /:name''", acount)
+	router.GET("/acount /:name''", func(c *gin.Context) {
+		c.String(http.StatusOK, "account page!")
+	})
 	router.Run()
 }
